@@ -35,7 +35,7 @@ namespace ExtractTimeLogs
             var lines = await File.ReadAllLinesAsync(file);
 
             var timeTexts = lines.Select(t => {
-                var match = Regex.Match(t, @"\[(?<time>\d{4}/\d\d/\d\d \d\d:\d\d):\d\d.\d{3}\]");
+                var match = Regex.Match(t, @"\[(?<time>\d{4}/\d\d/\d\d \d\d:\d\d:\d\d).\d{3}\]");
                 if (!match.Success)
                 {
                     return (Time: default, Text: t);

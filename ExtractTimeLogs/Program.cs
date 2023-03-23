@@ -56,7 +56,14 @@ namespace ExtractTimeLogs
             }
             else
             {
-                return $"{fromPath} {fromTime:HHmm}-{toTime:HHmm}";
+                if (fromTime.Second != 0 || toTime.Second != 0)
+                {
+                    return $"{fromPath} {fromTime:HHmmss}-{toTime:HHmmss}";
+                }
+                else
+                {
+                    return $"{fromPath} {fromTime:HHmm}-{toTime:HHmm}";
+                }
             }
         }
     }
